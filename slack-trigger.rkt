@@ -1,7 +1,7 @@
 #lang racket
 
-(require web-server/http/request-structs
-         db)
+(require web-server/http/request-structs         
+         net/uri-codec)
 
 (provide
  (struct-out slack-trigger)
@@ -34,4 +34,4 @@
    (car (hash-ref body-hash "user_id" '("")))
    (car (hash-ref body-hash "user_name" '(null)))
    (car (hash-ref body-hash "command" '("")))
-   (car (hash-ref body-hash "text" '(null)))))
+   (car (uri-decode (hash-ref body-hash "text" '(null))))))
