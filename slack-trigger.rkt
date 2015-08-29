@@ -21,10 +21,9 @@
    
 
 (define (slack-trigger-from request)
-  (define body-list (string-split (bytes->string/utf-8 (request-post-data/raw request)) "\n"))
+  (define body-list (string-split (bytes->string/utf-8 (request-post-data/raw request)) "&"))  
   (define body-hash
-    (make-hash
-     (map (lambda (pair) (string-split pair "=")) body-list)))
+    (make-hash (map (lambda (pair) (string-split pair "=")) body-list)))  
   (slack-trigger
    (car (hash-ref body-hash "token" '("")))
    (car (hash-ref body-hash "team_id" '("")))

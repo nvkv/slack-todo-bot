@@ -14,7 +14,7 @@
          "todo.rkt")
 
 (post "/add"
-      (lambda (req)        
+      (lambda (req)
         (match (add-todo (slack-trigger-from req))
           [(simple-result _) "Ok, я записал"]
           [_ "Что-то пошло не так :("])))
