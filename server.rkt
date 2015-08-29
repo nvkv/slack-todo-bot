@@ -37,7 +37,7 @@
                                  (cons 'fields
                                        (map (lambda (todo) (todo->hash todo))
                                             todos)))))))))
-(get "/broadcast"
+(post "/broadcast"
      (lambda (req)       
        (let ([todos (get-uncompleted-todos)])
          (define json-port (open-output-string))
