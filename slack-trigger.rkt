@@ -1,6 +1,7 @@
 #lang racket
 
-(require web-server/http/request-structs)
+(require web-server/http/request-structs
+         db)
 
 (provide
  (struct-out slack-trigger)
@@ -17,6 +18,7 @@
    user-name
    command
    text))
+   
 
 (define (slack-trigger-from request)
   (define body-list (string-split (bytes->string/utf-8 (request-post-data/raw request)) "\n"))
@@ -31,6 +33,6 @@
    (car (hash-ref body-hash "channel_name" '("")))
    (car (hash-ref body-hash "timestamp" '("")))
    (car (hash-ref body-hash "user_id" '("")))
-   (car (hash-ref body-hash "user_name" '("")))
+   (car (hash-ref body-hash "user_name" '(null)))
    (car (hash-ref body-hash "command" '("")))
-   (car (hash-ref body-hash "text" '("")))))
+   (car (hash-ref body-hash "text" '(null)))))
