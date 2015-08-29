@@ -7,8 +7,8 @@ Stoopid todo bot for Slack written in Racket
 * Add incoming webhook which you will specify in `config.rkt`
 * Add two slash-commands
   * `/todo [text]`, which will trigger POST request to `http://yourhost:8000/add`
-  * `/done [number]`, which will trigger POST request to `http://youthost:8000/complete`
-* Add outgoing webhook or slash-command, wich will be trigger POST(!) request to `http://youthost:8000/broadcast`
+  * `/done [number]`, which will trigger POST request to `http://yourhost:8000/complete`
+* Add outgoing webhook or slash-command, wich will be trigger POST(!) request to `http://yourhost:8000/broadcast`
 
 # Installation
 
