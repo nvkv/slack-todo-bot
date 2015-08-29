@@ -32,7 +32,7 @@
   (make-hash (list (cons 'attachments
                          (list
                           (make-hash
-                           (list (cons 'fallback "TODO:")
+                           (list (cons 'pretext "Вы зачем-то хотели сделать это, жалкие людишки:")
                                  (cons 'color "#D00000")
                                  (cons 'fields
                                        (map (lambda (todo) (todo->hash todo))
@@ -49,4 +49,5 @@
        "ok"))
 
 (init-database!)
-(run)
+(writeln "Starting bot...")
+(run #:listen-ip #f)
