@@ -1,6 +1,6 @@
 # slack-todo-bot
 
-Stoopid todo bot for Slack in Racket
+Stoopid todo bot for Slack written in Racket
 
 # Slack setup
 
