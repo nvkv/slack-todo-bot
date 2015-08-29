@@ -28,7 +28,7 @@
 (define (rich-slack-message todos)
   (define (todo->hash todo)
     (make-hash (list (cons 'title (todo-author todo))
-                     (cons 'value (todo-text todo)))))
+                     (cons 'value (string-append (~a (todo-id todo)) ": " (todo-text todo))))))
   (make-hash (list (cons 'attachments
                          (list
                           (make-hash

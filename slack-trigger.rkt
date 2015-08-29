@@ -34,4 +34,5 @@
    (car (hash-ref body-hash "user_id" '("")))
    (car (hash-ref body-hash "user_name" '(null)))
    (car (hash-ref body-hash "command" '("")))
-   (form-urlencoded-decode (car (hash-ref body-hash "text" '(null))))))
+   (form-urlencoded-decode
+    (string-trim (car (hash-ref body-hash "text" '(null)))))))
