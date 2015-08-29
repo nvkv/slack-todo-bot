@@ -34,4 +34,4 @@
    (car (hash-ref body-hash "user_id" '("")))
    (car (hash-ref body-hash "user_name" '(null)))
    (car (hash-ref body-hash "command" '("")))
-   (car (uri-decode (hash-ref body-hash "text" '(null))))))
+   (uri-decode (car (hash-ref body-hash "text" '(null))))))
