@@ -28,7 +28,12 @@
 (define (rich-slack-message todos)
   (define (todo->hash todo)
     (make-hash (list (cons 'title (todo-author todo))
-                     (cons 'value (string-append (~a (todo-id todo)) ": " (todo-text todo))))))
+                     (cons 'value (string-append (~a (todo-id todo))
+                                                 ": "
+                                                 (let ([text (todo-text todo)])
+                                                   (if (> (string-length text) 512)
+                                                       (substring text 0 512)
+                                                       text)))))))
   (make-hash (list (cons 'attachments
                          (list
                           (make-hash
